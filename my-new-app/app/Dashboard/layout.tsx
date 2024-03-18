@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 interface DashboardLayoutPropes {
   children: React.ReactNode;
@@ -18,13 +19,21 @@ const DashboardLayout: React.FC<DashboardLayoutPropes> = (props) => {
       <div className="flex">
         <div className="h-screen text-white bg-black w-[15vw] text-2xl">
           <ul className="pt-5 flex flex-col gap-5 px-3">
-            <li>Dashboard</li>
-            <li>Credits</li>
-            <li>Payments</li>
-            <li>Profile</li>
+            <li>
+              <Link href="/Dashboard"> Dashboard</Link>
+            </li>
+            <li>
+              <Link href="/Dashboard/todos">Todos</Link>
+            </li>
+            <li>
+              <Link href="/Dashboard/users">Users</Link>
+            </li>
+            <li>
+              <Link href="/Dashboard/profile">Profile</Link>
+            </li>
           </ul>
         </div>
-        <div>{props.children}</div>
+        <div className="p-4 max-h-screen overflow-auto">{props.children}</div>
       </div>
     </div>
   );
